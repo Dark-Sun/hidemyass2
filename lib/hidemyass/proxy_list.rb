@@ -33,7 +33,7 @@ module HideMyAss
     #
     # @return [ Array<HideMyAss::Proxy::Base> ]
     def fetch(&block)
-      proxies = hidester_proxies.concat(hide_me_proxies)
+      proxies = hide_me_proxies
       proxies.uniq!(&:ip)
 
       block_given? ? proxies.keep_if(&block) : proxies
